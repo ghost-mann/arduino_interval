@@ -15,10 +15,14 @@ void init_interval() {
 }
 
 void loop_interval() {
+    // track current time
     unsigned long currentMillis = millis();
+
+    // save new state as it changes
     if (currentMillis - previousMillis >= interval) {
         previousMillis = currentMillis;
-
+        
+        // if on switch to off and vice versa
         if (ledState == LOW) {
             ledState = HIGH;
         } else {
