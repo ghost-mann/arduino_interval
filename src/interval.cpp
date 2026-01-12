@@ -1,17 +1,30 @@
 #include <Arduino.h>
 #include "interval.h"
 
-const int ledPin = 9;
+int ledPin = 9;
 
-unsigned long previousMills = 0;
+int ledState = LOW;
+
+unsigned long previousMillis = 0;
 
 const long interval = 1000;
 
 void init_interval() {
-
+    pinMode(ledPin,OUTPUT);
 
 }
 
-void init_loop() {
+void loop_interval() {
+    unsigned long currentMillis = millis();
+    if (currentMillis - previousMillis >= interval) {
+        previousMillis = currentMillis;
+
+        if (ledState == LOW) {
+            ledState = HIGH;
+        } else {
+            ledState = LOW;
+        }
+        digitalWrite(ledPin,ledState);
+    }
     
 }
