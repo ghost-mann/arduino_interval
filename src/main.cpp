@@ -2,10 +2,10 @@
 #include "interval.h"
 
 void setup() {
-  init_interval();
+  init_led();
 }
 
 void loop() {
-  loop_interval();
+  loop_led();
 }
 
